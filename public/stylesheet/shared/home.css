@@ -1,0 +1,70 @@
+.container-fluid {
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+}
+
+.item,
+.item1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    width: 50%;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+.item:nth-child(1) {
+    background: rgb(94, 221, 221);
+    height: 50vh;
+    width: 50%
+}
+
+.item:nth-child(2) {
+    background: rgb(109, 214, 109);
+    height: 50vh;
+    width: 50%
+}
+
+.item1:nth-child(1) {
+    background: rgb(218, 201, 105);
+    height: 50vh;
+    width: 50%
+}
+
+.item1:nth-child(2) {
+    background: rgb(77, 179, 179);
+    height: 50vh;
+    width: 50%
+}
+
+.logo {
+    position: absolute;
+    left: 45%;
+    top: 40%;
+    background-color: #fff;
+    font-size: xx-large;
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    transition: 1s;
+}
+
+.title-logo {
+    position: absolute;
+    top: 35%;
+    left: 25%;
+}
+
+.logo,
+.item,
+.item1 {
+    color: black;
+}
+
+.logo:hover {
+    scale: 1.2;
+}

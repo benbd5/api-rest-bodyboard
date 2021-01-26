@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<div class="container">
+    <div class="row">
+        <% combinaisons.forEach(combinaison =>  { %>
+        <div class="col-3">
+            <p> <%= combinaison.name %> </p>
+            <p> <%= combinaison.price %> </p>
+            <p> <%= combinaison.category %> </p>
+        </div>
+        <% }); %>
+    </div>
+</div>

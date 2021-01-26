@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<div class="container">
+    <div class="row">
+        <% palmes.forEach(palme =>  { %>
+        <div class="col-3">
+            <p> <%= palme.name %> </p>
+            <p> <%= palme.price %> </p>
+            <p> <%= palme.category %> </p>
+        </div>
+        <% }); %>
+    </div>
+</div>

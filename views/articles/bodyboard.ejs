@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<div class="container">
+    <div class="row">
+        <% bodyboards.forEach(bodyboard =>  { %>
+        <div class="col-3">
+            <p> <%= bodyboard.name %> </p>
+            <p> <%= bodyboard.price %> </p>
+            <p> <%= bodyboard.category %> </p>
+        </div>
+        <% }); %>
+    </div>
+</div>
