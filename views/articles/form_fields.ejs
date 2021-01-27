@@ -1,10 +1,33 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <label>Nom de l'article</label>
-            <!-- TODO: voir le this, quel article(entre les 4) -->
-            <input type="text" name="name" value="<%= this.title %>">
+            <label for="name">Nom de l'article</label>
+            <input class="form-control" type="text" name="name" id="name">
         </div>
-
     </div>
-</div>
+    <div class="row">
+        <div class="col">
+            <label for="price">Prix</label>
+            <input class="form-control" type="number" name="price" id="price">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <select class="form-select" name="category" id="category">
+                <option selected>Choisir la catégorie</option>
+                <option value="bodyboard">Bodyboard</option>
+                <option value="palmes">Palmes</option>
+                <option value="combinaisons">Combinaisons</option>
+                <option value="accessoires">Accessoires</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="infos">Informations</label>
+            <textarea class="form-control" type="text" name="infos" id="infos">
+
+            </textarea>
+        </div>
+    </div>
+    <!-- Le container n'est pas fermé pour que les boutons "annuler" et "ajouter" soient bien placés -->

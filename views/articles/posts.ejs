@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+
+<h2 class="">Ajouter un article</h2>
+<form action="/posts" method="POST">
+    <%- include('form_fields') %>
+    <a class="btn btn-danger" href="/">Annuler</a>
+    <button class="btn btn-primary" type="submit">Ajouter</button>
+</form>

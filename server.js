@@ -17,7 +17,12 @@ const articlesRouter = require("./routes/articlesRoutes");
 app.set("view engine", "ejs");
 
 app.use(express.static("public"));
+
+// Parse application/json, basically parse incoming Request Object as a JSON Object
 app.use(bodyParser.json());
+
+// Sert pour POST et PUT lors de l'envoi de données au seveur
+app.use(express.urlencoded({ extended: true }));
 
 // ---------- Mongo ----------
 mongoose.connect(process.env.DATABASE_URL, {
@@ -36,6 +41,7 @@ db.once("open", () => console.log("Connected to mongoose"));
 app.use("/", homeRouter);
 app.use(articlesRouter);
 
+// Server
 app.listen(port, () => {
   console.log(`Server running on ${port}`);
 });
