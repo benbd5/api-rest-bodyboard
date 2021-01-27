@@ -15,6 +15,9 @@ const bodyboardSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  infos: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("Bodyboard", bodyboardSchema);
