@@ -1,13 +1,46 @@
 <%- include('../partials/header') %>
 
 <div class="container">
+    <div class="form-check">
+        <!-- TODO : Changer les id et les for -->
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+            Default checkbox
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+        <label class="form-check-label" for="flexCheckChecked">
+            Checked checkbox
+        </label>
+    </div>
+</div>
+
+<div class="container">
     <div class="row">
-        <% palmes.forEach(palme =>  { %>
-        <div class="col-3">
-            <p> <%= palme.name %> </p>
-            <p> <%= palme.price %> </p>
-            <p> <%= palme.category %> </p>
+        <% articles.forEach(article =>  { %>
+        <% if ( article.category == "palmes") { %>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="<%= article.image %> " class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><%= article.name %></h5>
+                    <p class="card-text"><%= article.infos %> </p>
+                    <p> <%= article.price %> </p>
+                    <p> <%= article.category %> </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">caractéristiques</li>
+                    <li class="list-group-item">caractéristiques</li>
+                    <li class="list-group-item">caractéristiques</li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link">Plus d'informations</a>
+                    <a href="#" class="card-link">Ajouter au panier</a>
+                </div>
+            </div>
         </div>
+        <% } %>
         <% }); %>
     </div>
 </div>

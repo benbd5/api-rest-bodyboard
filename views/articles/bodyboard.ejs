@@ -18,16 +18,16 @@
 
 <div class="container">
     <div class="row">
-        <% bodyboards.forEach(bodyboard =>  { %>
-        <% if ( bodyboard.category == "prone") { %>
+        <% articles.forEach(article =>  { %>
+        <% if ( article.category == "bodyboard") { %>
         <div class="col">
             <div class="card" style="width: 18rem;">
-                <img src="<%= bodyboard.image %> " class="card-img-top" alt="...">
+                <img src="<%= article.image %> " class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title"><%= bodyboard.name %></h5>
-                    <p class="card-text"><%= bodyboard.infos %> </p>
-                    <p> <%= bodyboard.price %> </p>
-                    <p> <%= bodyboard.category %> </p>
+                    <h5 class="card-title"><%= article.name %></h5>
+                    <p class="card-text"><%= article.infos %> </p>
+                    <p> <%= article.price %> </p>
+                    <p> <%= article.category %> </p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">caractéristiques</li>
