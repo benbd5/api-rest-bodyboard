@@ -13,6 +13,7 @@ const express = require("express"),
 // ---------- Import controllers/routes ----------
 const homeRouter = require("./routes/home");
 const articlesRouter = require("./routes/articlesRoutes");
+const userRouter = require("./routes/usersRoutes");
 
 // Set
 app.set("view engine", "ejs");
@@ -42,6 +43,7 @@ db.on("err", (err) => console.log(err));
 db.once("open", () => console.log("Connected to mongoose"));
 
 // ---------- Routes ----------
+app.use("/auth", userRouter);
 app.use("/", homeRouter);
 app.use(articlesRouter);
 
