@@ -5,27 +5,48 @@ const Article = require("../models/articles");
 // ---------- GET ----------
 // Afficher les articles en fonction de leur catégorie dans leur page dédiée
 const article_bodyboard_index = async (req, res) => {
-  const articles = await Article.find({ category: "bodyboard" });
+  const articles = await Article.find({ category: "bodyboard" }).sort({
+    price: 1,
+  }); // sort price (1) = croissant et (-1) décroissant
 
-  res.render("articles/bodyboard", { articles: articles });
+  // articlesTotal pour afficher le nombre d'articles sur la page
+  const articlesTotal = await Article.countDocuments({ category: "bodyboard" });
+
+  res.render("articles/bodyboard", { articles, articlesTotal });
 };
 
 const article_palmes_index = async (req, res) => {
-  const articles = await Article.find({ category: "palmes" });
+  const articles = await Article.find({ category: "palmes" }).sort({
+    price: 1,
+  });
 
-  res.render("articles/palmes", { articles: articles });
+  const articlesTotal = await Article.countDocuments({ category: "palmes" });
+
+  res.render("articles/palmes", { articles, articlesTotal });
 };
 
 const article_combinaisons_index = async (req, res) => {
-  const articles = await Article.find({ category: "combinaisons" });
+  const articles = await Article.find({ category: "combinaisons" }).sort({
+    price: 1,
+  });
 
-  res.render("articles/combinaisons", { articles: articles });
+  const articlesTotal = await Article.countDocuments({
+    category: "combinaisons",
+  });
+
+  res.render("articles/combinaisons", { articles, articlesTotal });
 };
 
 const article_accessoires_index = async (req, res) => {
-  const articles = await Article.find({ category: "accessoires" });
+  const articles = await Article.find({ category: "accessoires" }).sort({
+    price: 1,
+  });
 
-  res.render("articles/accessoires", { articles: articles });
+  const articlesTotal = await Article.countDocuments({
+    category: "accessoires",
+  });
+
+  res.render("articles/accessoires", { articles, articlesTotal });
 };
 
 // Afficher les articles individuellement avec leur id
@@ -33,7 +54,6 @@ const articles_details = async (req, res) => {
   try {
     const articles = await Article.findById(req.params.id);
     res.render("articles/showArticle", { articles });
-    console.log(articles);
   } catch {
     res.redirect("/");
   }
