@@ -1,4 +1,15 @@
-const jwt = require("jsonwebtoken");
+const User = require("../models/users");
+
+const auth = (req, res, next) => {
+  User.findById(req.session.userId, (err, user) => {
+    if (err || !user) return res.redirect("/auth/login");
+    next();
+  });
+};
+
+module.exports = auth;
+
+/*const jwt = require("jsonwebtoken");
 
 module.exports = (req, res, next) => {
   try {
@@ -20,3 +31,4 @@ module.exports = (req, res, next) => {
     });
   }
 };
+*/

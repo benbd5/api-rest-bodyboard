@@ -8,7 +8,9 @@ const express = require("express"),
   port = process.env.PORT || 3000,
   mongoose = require("mongoose"),
   bodyParser = require("body-parser"),
-  methodOverride = require("method-override");
+  methodOverride = require("method-override"),
+  expressSession = require("express-session"),
+  MongoStore = require("connect-mongo")(expressSession); // stock cookie dans mongoDB
 
 // ---------- Import controllers/routes ----------
 const homeRouter = require("./routes/home");
@@ -28,6 +30,18 @@ app.use(express.urlencoded({ extended: true }));
 
 // Pour PUT et DELETE (?_method=PUT/DELETE)
 app.use(methodOverride("_method"));
+
+// Connexion
+app.use(
+  expressSession({
+    secret: "secure",
+    name: "sessionId",
+    resave: false,
+    saveUninitialized: true,
+    // cookie: { secure: true },
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  })
+);
 
 // ---------- Mongo ----------
 mongoose.connect(process.env.DATABASE_URL, {

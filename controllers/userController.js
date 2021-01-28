@@ -35,7 +35,8 @@ const login = (req, res) => {
     .then((user) => {
       // vérifie si on a trouvé un utilisateur
       if (!user) {
-        return res.status(401).json({ err: "Utilisateur non trouvé !" });
+        // return res.status(401).json({ err: "Utilisateur non trouvé !" });
+        return res.redirect("/auth/login");
       }
       bcrypt
         .compare(req.body.password, user.password)
@@ -43,14 +44,18 @@ const login = (req, res) => {
           if (!valid) {
             return res.status(401).json({ err: "Mot de passe incorrect !" });
           }
-          res.status(200).json({
+          req.session.userId = user._id;
+          res.send("connecté");
+          console.log(req.session.userId);
+
+          /*res.status(200).json({
             //   id de l'utilisateur :
             userId: user._id,
             // jwt.sign() pour encoder l'id dans le Token
             token: jwt.sign({ userId: user._id }, "RANDOM_TOKEN_SECRET", {
               expiresIn: "24h",
             }),
-          });
+          });*/
         })
         .catch((err) => res.status(500).json({ err }));
     })
@@ -61,6 +66,7 @@ const login = (req, res) => {
 const logout = (req, res) => {
   req.session.destroy(() => {
     res.redirect("/");
+    console.log(req.session);
   });
 };
 
