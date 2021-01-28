@@ -23,7 +23,9 @@
         <% if ( article.category == "accessoires") { %>
         <div class="col">
             <div class="card" style="width: 18rem;">
-                <img src="<%= article.image %> " class="card-img-top" alt="...">
+                <a href="/articles/<%= article.id %> ">
+                    <img src="<%= article.image %> " class="card-img-top" alt="...">
+                </a>
                 <div class="card-body">
                     <h5 class="card-title"><%= article.name %></h5>
                     <p class="card-text"><%= article.infos %> </p>
@@ -36,8 +38,15 @@
                     <li class="list-group-item">caractéristiques</li>
                 </ul>
                 <div class="card-body">
-                    <a href="#" class="card-link">Plus d'informations</a>
                     <a href="#" class="card-link">Ajouter au panier</a>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <%- include('../partials/editForm', { url: article.id }) %>
+                        <%- include('../partials/deleteForm', { url: `/articles/${article.id}` }) %>
+                    </div>
                 </div>
             </div>
         </div>

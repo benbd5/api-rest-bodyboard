@@ -10,16 +10,20 @@ router.get("/palmes", articlesController.article_palmes_index);
 router.get("/combinaisons", articlesController.article_combinaisons_index);
 router.get("/accessoires", articlesController.article_accessoires_index);
 
+// Afficher les articles individuellement en fontion de leur id
+router.get("/articles/:id", articlesController.articles_details);
+
 // Afficher la page posts
 router.get("/articles/posts", articlesController.article_create_get);
 
-// Afficher les articles individuellement en fontion de leur id
-router.get("/articles/:id", articlesController.articles_details);
+// Afficher la page edit
+router.get("/forms/:id/edit", articlesController.articles_create_put);
 
 // Route POST pour créer les articles
 router.post("/posts", articlesController.article_create_post);
 
 // Route PUT pour modifier les articles
+router.put("/articles/:id", articlesController.articles_update);
 
 // Route DELETE pour supprimer les articles
 

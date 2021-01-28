@@ -7,7 +7,8 @@ const express = require("express"),
   ejs = require("ejs"),
   port = process.env.PORT || 3000,
   mongoose = require("mongoose"),
-  bodyParser = require("body-parser");
+  bodyParser = require("body-parser"),
+  methodOverride = require("method-override");
 
 // ---------- Import controllers/routes ----------
 const homeRouter = require("./routes/home");
@@ -23,6 +24,9 @@ app.use(bodyParser.json());
 
 // Sert pour POST et PUT lors de l'envoi de données au seveur
 app.use(express.urlencoded({ extended: true }));
+
+// Pour PUT et DELETE (?_method=PUT/DELETE)
+app.use(methodOverride("_method"));
 
 // ---------- Mongo ----------
 mongoose.connect(process.env.DATABASE_URL, {

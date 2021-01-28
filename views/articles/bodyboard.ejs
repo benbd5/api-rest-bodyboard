@@ -38,8 +38,15 @@
                     <li class="list-group-item">...</li>
                 </ul>
                 <div class="card-body">
-                    <a href="#" class="card-link">Plus d'informations</a>
                     <a href="#" class="card-link">Ajouter au panier</a>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <%- include('../partials/editForm', { url: article.id }) %>
+                        <%- include('../partials/deleteForm', { url: `/articles/${article.id}` }) %>
+                    </div>
                 </div>
             </div>
         </div>

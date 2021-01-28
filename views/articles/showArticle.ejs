@@ -22,5 +22,7 @@
                 </div>
             </div>
         </div>
+        <%- include('../partials/editForm', { url: articles.id }) %>
+        <%- include('../partials/deleteForm', { url: `/articles/${articles.id}` }) %>
     </div>
 </div>

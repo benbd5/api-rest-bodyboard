@@ -82,8 +82,37 @@ const article_create_post = (req, res) => {
 };
 
 // ---------- PUT  ----------
+// Afficher la page "edit"
+const articles_create_put = async (req, res) => {
+  try {
+    const articles = await Article.findById(req.params.id);
+    res.render("forms/edit", { articles });
+  } catch {
+    res.redirect("/");
+  }
+};
 
-// Exports des modules controllers vers articlesRoutes
+// Modifier les articles
+const articles_update = async (req, res) => {
+  let articles;
+  try {
+    articles = await Article.findById(req.params.id);
+
+    // On récupère les nouvelles valeurs :
+    (articles.name = req.body.name),
+      (articles.price = req.body.price),
+      (articles.category = req.body.category),
+      (articles.infos = req.body.infos);
+
+    await articles.save();
+    res.redirect(`${articles.id}`);
+  } catch (err) {
+    console.log(err);
+    res.redirect("/");
+  }
+};
+
+// ---------- Exports des modules controllers vers articlesRoutes ----------
 module.exports = {
   article_bodyboard_index,
   article_palmes_index,
@@ -92,4 +121,6 @@ module.exports = {
   article_create_post,
   article_create_get,
   articles_details,
+  articles_create_put,
+  articles_update,
 };
