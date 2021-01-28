@@ -1,7 +1,5 @@
 const Article = require("../models/articles");
 
-// bodyboard_index, bodyboard_details, bodyboard_create_get, bodyboard_create_post, bodyboard_delete
-
 // ---------- GET ----------
 // Afficher les articles en fonction de leur catégorie dans leur page dédiée
 const article_bodyboard_index = async (req, res) => {
@@ -81,7 +79,7 @@ const article_create_post = (req, res) => {
   });
 };
 
-// ---------- PUT  ----------
+// ---------- PUT ----------
 // Afficher la page "edit"
 const articles_create_put = async (req, res) => {
   try {
@@ -112,6 +110,16 @@ const articles_update = async (req, res) => {
   }
 };
 
+// ---------- DELETE ----------
+const articles_delete = async (req, res) => {
+  let article;
+  article = await Article.findById(req.params.id);
+
+  await article.remove(); // remove of db
+
+  res.redirect("/");
+};
+
 // ---------- Exports des modules controllers vers articlesRoutes ----------
 module.exports = {
   article_bodyboard_index,
@@ -123,4 +131,5 @@ module.exports = {
   articles_details,
   articles_create_put,
   articles_update,
+  articles_delete,
 };

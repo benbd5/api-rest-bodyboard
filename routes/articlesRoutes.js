@@ -26,5 +26,6 @@ router.post("/posts", articlesController.article_create_post);
 router.put("/articles/:id", articlesController.articles_update);
 
 // Route DELETE pour supprimer les articles
+router.delete("/articles/:id", articlesController.articles_delete);
 
 module.exports = router;
