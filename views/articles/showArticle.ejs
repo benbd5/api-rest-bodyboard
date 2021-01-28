@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="<%= articles.image %> " class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h3 class="card-title"><%= articles.name %></h3>
+                    <p class="card-text"><%= articles.infos %> </p>
+                    <p class="price"> <%= articles.price %> € </p>
+                    <p class="category"> <%= articles.category %> </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">...</li>
+                    <li class="list-group-item">...</li>
+                    <li class="list-group-item">...</li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link">Plus d'informations</a>
+                    <a href="#" class="card-link">Ajouter au panier</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

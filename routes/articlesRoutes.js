@@ -4,9 +4,6 @@ const articlesController = require("../controllers/articlesController");
 
 const router = express.Router();
 
-// router.get("/bodyboard", bodyboardController.bodyboard_index);
-// router.post("/posts", bodyboardController.bodyboard_create_post);
-
 // Routes GET pour afficher les articles en fonction de leur catégorie dans leur page dédiée
 router.get("/bodyboard", articlesController.article_bodyboard_index);
 router.get("/palmes", articlesController.article_palmes_index);
@@ -15,6 +12,9 @@ router.get("/accessoires", articlesController.article_accessoires_index);
 
 // Afficher la page posts
 router.get("/articles/posts", articlesController.article_create_get);
+
+// Afficher les articles individuellement en fontion de leur id
+router.get("/articles/:id", articlesController.articles_details);
 
 // Route POST pour créer les articles
 router.post("/posts", articlesController.article_create_post);

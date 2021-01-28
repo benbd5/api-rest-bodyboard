@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+
+<h2 class="">Modifier l'article</h2>
+<form action="/edit" method="POST">
+    <%- include('form_fields') %>
+    <a class="btn btn-info" href="/">Annuler</a>
+    <button class="btn btn-success" type="submit">Modifier</button>
+</form>

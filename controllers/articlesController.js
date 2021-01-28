@@ -28,6 +28,17 @@ const article_accessoires_index = async (req, res) => {
   res.render("articles/accessoires", { articles: articles });
 };
 
+// Afficher les articles individuellement avec leur id
+const articles_details = async (req, res) => {
+  try {
+    const articles = await Article.findById(req.params.id);
+    res.render("articles/showArticle", { articles });
+    console.log(articles);
+  } catch {
+    res.redirect("/");
+  }
+};
+
 // ---------- POST  ----------
 // Afficher la page posts
 const article_create_get = (req, res) => {
@@ -50,6 +61,8 @@ const article_create_post = (req, res) => {
   });
 };
 
+// ---------- PUT  ----------
+
 // Exports des modules controllers vers articlesRoutes
 module.exports = {
   article_bodyboard_index,
@@ -58,4 +71,5 @@ module.exports = {
   article_accessoires_index,
   article_create_post,
   article_create_get,
+  articles_details,
 };
