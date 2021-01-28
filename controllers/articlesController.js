@@ -60,7 +60,7 @@ const articles_details = async (req, res) => {
 // ---------- POST  ----------
 // Afficher la page posts
 const article_create_get = (req, res) => {
-  res.render("articles/posts");
+  res.render("forms/posts");
 };
 
 // Poster de nouveaux articles

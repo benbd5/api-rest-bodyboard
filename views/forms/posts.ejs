@@ -2,7 +2,38 @@
 
 <h2 class="">Ajouter un article</h2>
 <form action="/posts" method="POST">
-    <%- include('form_fields') %>
-    <a class="btn btn-danger" href="/">Annuler</a>
-    <button class="btn btn-primary" type="submit">Ajouter</button>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <label for="name">Nom de l'article</label>
+                <input class="form-control" type="text" name="name" id="name">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="price">Prix</label>
+                <input class="form-control" type="text" name="price" id="price">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <select class="form-select" name="category" id="category">
+                    <option selected>Choisir la catégorie</option>
+                    <option value="bodyboard">Bodyboard</option>
+                    <option value="palmes">Palmes</option>
+                    <option value="combinaisons">Combinaisons</option>
+                    <option value="accessoires">Accessoires</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="infos">Informations</label>
+                <textarea class="form-control" type="text" name="infos" id="infos">
+
+                </textarea>
+            </div>
+        </div>
+        <a class="btn btn-danger" href="/">Annuler</a>
+        <button class="btn btn-primary" type="submit">Ajouter</button>
 </form>
