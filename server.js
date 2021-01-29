@@ -51,8 +51,7 @@ app.use(
 app.use("*", (req, res, next) => {
   res.locals.user = req.session.userId;
   res.locals.name = req.session.name;
-  console.log(res.locals.name);
-  console.log(res.locals.user);
+  console.log(` Id : ${res.locals.user}, Name : ${res.locals.name}`);
   next();
 });
 

@@ -34,7 +34,8 @@ const login = (req, res) => {
           if (!valid) {
             return res.status(401).json({ err: "Mot de passe incorrect !" });
           }
-          req.session.userId = user._id;
+          req.session.userId = user._id; // assigne l'id de la db
+          req.session.name = user.name; // assigne le name de la db
           res.redirect("/forms/posts");
 
           /*res.status(200).json({
