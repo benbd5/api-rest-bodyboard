@@ -3,12 +3,23 @@
 <header>
     <nav class="header-nav">
         <a href="/" class="header-title">E-commerce</a>
+        <% if (user) { %>
+        <p>Salut <%= user.name %> </p>
+        <% } %>
+
         <ul>
+            <% if (user) { %>
             <li>
                 <a href="/forms/posts">
-                    poster
+                    Poster
                 </a>
             </li>
+            <li>
+                <a href="/auth/logout">
+                    Déconnexion
+                </a>
+            </li>
+            <% } else if (!locals.user){ %>
             <li>
                 <a href="/auth/register">
                     Inscription
@@ -19,11 +30,7 @@
                     Connexion
                 </a>
             </li>
-            <li>
-                <a href="/auth/logout">
-                    Déconnexion
-                </a>
-            </li>
+            <% } %>
         </ul>
     </nav>
 </header>

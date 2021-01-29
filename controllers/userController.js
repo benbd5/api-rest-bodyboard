@@ -13,20 +13,10 @@ const login_get = (req, res) => {
 
 // ---------- S'inscrire et se connecter ----------
 const register = (req, res) => {
-  bcrypt
-    .hash(req.body.password, 10)
-    .then((hash) => {
-      const user = new User({
-        name: req.body.name,
-        email: req.body.email,
-        password: hash,
-      });
-      user
-        .save()
-        .then(() => res.status(201).json({ message: "user created" }))
-        .catch((err) => res.status(400).json({ err }));
-    })
-    .catch((err) => res.status(500).json({ err }));
+  User.create(req.body, (err, user) => {
+    if (!err) res.redirect("/");
+    else console.log(err);
+  });
 };
 
 const login = (req, res) => {
@@ -45,8 +35,7 @@ const login = (req, res) => {
             return res.status(401).json({ err: "Mot de passe incorrect !" });
           }
           req.session.userId = user._id;
-          res.send("connecté");
-          console.log(req.session.userId);
+          res.redirect("/forms/posts");
 
           /*res.status(200).json({
             //   id de l'utilisateur :

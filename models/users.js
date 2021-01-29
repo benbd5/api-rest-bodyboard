@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const uniqueValidator = require("mongoose-unique-validator");
+const bcrypt = require("bcrypt");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -17,6 +18,14 @@ const userSchema = new mongoose.Schema({
   },
 });
 
+userSchema.pre("save", function (next) {
+  const user = this;
+
+  bcrypt.hash(user.password, 10, (err, encrypted) => {
+    user.password = encrypted;
+    next();
+  });
+});
 // uniqueValidator pour éviter les erreurs dans mongoDB au niveau des adresses mails
 userSchema.plugin(uniqueValidator);
 

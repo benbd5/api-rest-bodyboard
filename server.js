@@ -10,6 +10,7 @@ const express = require("express"),
   bodyParser = require("body-parser"),
   methodOverride = require("method-override"),
   expressSession = require("express-session"),
+  flash = require("connect-flash"),
   MongoStore = require("connect-mongo")(expressSession); // stock cookie dans mongoDB
 
 // ---------- Import controllers/routes ----------
@@ -31,6 +32,9 @@ app.use(express.urlencoded({ extended: true }));
 // Pour PUT et DELETE (?_method=PUT/DELETE)
 app.use(methodOverride("_method"));
 
+// Flash exppres
+app.use(flash());
+
 // Connexion
 app.use(
   expressSession({
@@ -42,6 +46,15 @@ app.use(
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
 );
+
+// Pour identifier l'utilisateur connecté sur toutes les pages du site
+app.use("*", (req, res, next) => {
+  res.locals.user = req.session.userId;
+  res.locals.name = req.session.name;
+  console.log(res.locals.name);
+  console.log(res.locals.user);
+  next();
+});
 
 // ---------- Mongo ----------
 mongoose.connect(process.env.DATABASE_URL, {
