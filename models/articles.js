@@ -18,6 +18,11 @@ const articleSchema = new mongoose.Schema({
   infos: {
     type: String,
   },
+  image: String,
+  createdAt: {
+    type: Date,
+    default: new Date(),
+  },
 });
 
 module.exports = mongoose.model("Article", articleSchema);

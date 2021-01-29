@@ -11,6 +11,7 @@ const express = require("express"),
   methodOverride = require("method-override"),
   expressSession = require("express-session"),
   flash = require("connect-flash"),
+  fileUpload = require("express-fileupload"),
   MongoStore = require("connect-mongo")(expressSession); // stock cookie dans mongoDB
 
 // ---------- Import controllers/routes ----------
@@ -34,6 +35,9 @@ app.use(methodOverride("_method"));
 
 // Flash exppres
 app.use(flash());
+
+// Upload images
+app.use(fileUpload());
 
 // Connexion
 app.use(

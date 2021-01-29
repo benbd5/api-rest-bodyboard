@@ -1,3 +1,4 @@
+const path = require("path");
 const Article = require("../models/articles");
 
 // ---------- GET ----------
@@ -65,7 +66,9 @@ const article_create_get = (req, res) => {
 
 // Poster de nouveaux articles
 const article_create_post = (req, res) => {
-  console.log(req.body.category);
+  const image = req.files.image;
+
+  // Assigne les informations du produit
   const newArticle = new Article({
     name: req.body.name,
     price: req.body.price,
@@ -73,6 +76,22 @@ const article_create_post = (req, res) => {
     infos: req.body.infos,
   });
 
+  // Upload l'image
+  const uploadFile = path.resolve(
+    __dirname,
+    "..",
+    "public/uploads",
+    image.name
+  );
+
+  image.mv(uploadFile, (err) => {
+    Article.create({
+      ...req.body,
+      image: `/uploads/${image.name}`,
+    });
+  });
+
+  // Save l'article
   newArticle.save((err, docs) => {
     if (!err) res.redirect("/");
     else console.log("il y a une erreur " + err);
