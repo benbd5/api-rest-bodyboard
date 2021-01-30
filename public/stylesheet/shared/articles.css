@@ -1,0 +1,43 @@
+.card img {
+    width: 350px;
+    height: 350px;
+}
+
+.card {
+    width: 350px;
+    box-shadow: 5px 5px 2.5px rgb(235, 235, 235);
+}
+
+.card-body {
+    width: 350px;
+    background: #aec3bf;
+}
+
+.edit_delete {
+    margin: 10px 0 20px 0;
+    width: 100%;
+    display: flex;
+}
+
+.list-group-item {
+    background: #aec3bf
+}
+
+.modif {
+    margin-bottom: 20px;
+}
+
+.nav-articles {
+    display: flex;
+}
+
+.nav-articles li {
+    list-style: none;
+    margin: auto;
+}
+
+/* .btn-custom {
+    color: black;
+    background: white;
+    margin: 0;
+} */

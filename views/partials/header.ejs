@@ -1,41 +1,45 @@
 <%-include('../partials/head');%>
 
 <header>
-    <nav class="header-nav">
-        <a href="/" class="header-title">E-commerce</a>
-        <% if (user) { %>
-        <p>Salut <%= name %> </p>
-        <% } %>
-
-        <ul>
-            <% if (user) { %>
-            <li>
-                <a href="/forms/posts">
-                    Poster
+    <nav class="navbar navbar-light bg-light">
+        <div class="nav-elements" id="nav-elements">
+            <ul class="nav-links">
+                <% if (user) { %>
+                <li>
+                    <a href="/forms/posts">
+                        Poster un article
+                    </a>
+                </li>
+                <li>
+                    <a href="/auth/logout">
+                        Déconnexion
+                    </a>
+                </li>
+                <% } else if (!locals.user){ %>
+                <li>
+                    <a href="/auth/register">
+                        Inscription
+                    </a>
+                </li>
+                <li>
+                    <a href="/auth/login">
+                        Connexion
+                    </a>
+                </li>
+                <% } %>
+                <a href="/" class="navbar-brand">
+                    <img src="/images/logo-boutique-bodyboard.png" alt="Logo" class="logo">
                 </a>
-            </li>
-            <li>
-                <a href="/auth/logout">
-                    Déconnexion
-                </a>
-            </li>
-            <% } else if (!locals.user){ %>
-            <li>
-                <a href="/auth/register">
-                    Inscription
-                </a>
-            </li>
-            <li>
-                <a href="/auth/login">
-                    Connexion
-                </a>
-            </li>
-            <% } %>
-        </ul>
-
-        <p>Panier :
-            <%=  %>
-        </p>
-
+                <li>
+                    <a href="/forms/contact">
+                        Contactez-nous
+                    </a>
+                </li>
+                <li>
+                    <% if (user) { %>
+                    <a href="#">Bonjour <%= name %> </a>
+                    <% } %>
+                </li>
+            </ul>
     </nav>
 </header>

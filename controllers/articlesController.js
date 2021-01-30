@@ -69,12 +69,18 @@ const article_create_post = (req, res) => {
   const image = req.files.image;
 
   // Assigne les informations du produit
-  const newArticle = new Article({
-    name: req.body.name,
-    price: req.body.price,
-    category: req.body.category,
-    infos: req.body.infos,
-  });
+  // const newArticle = new Article({
+  //   name: req.body.name,
+  //   price: req.body.price,
+  //   category: req.body.category,
+  //   infos: req.body.infos,
+  // });
+
+  // Save l'article
+  // newArticle.save((err, docs) => {
+  //   if (!err) res.redirect("/");
+  //   else console.log("il y a une erreur " + err);
+  // });
 
   // Upload l'image
   const uploadFile = path.resolve(
@@ -85,16 +91,15 @@ const article_create_post = (req, res) => {
   );
 
   image.mv(uploadFile, (err) => {
-    Article.create({
-      ...req.body,
-      image: `/uploads/${image.name}`,
-    });
-  });
-
-  // Save l'article
-  newArticle.save((err, docs) => {
-    if (!err) res.redirect("/");
-    else console.log("il y a une erreur " + err);
+    Article.create(
+      {
+        ...req.body,
+        image: `/uploads/${image.name}`,
+      },
+      (err, post) => {
+        res.redirect("/");
+      }
+    );
   });
 };
 
