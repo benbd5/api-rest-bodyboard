@@ -15,9 +15,10 @@ const express = require("express"),
   MongoStore = require("connect-mongo")(expressSession); // stock cookie dans mongoDB
 
 // ---------- Import controllers/routes ----------
-const homeRouter = require("./routes/home");
-const articlesRouter = require("./routes/articlesRoutes");
-const userRouter = require("./routes/usersRoutes");
+const homeRouter = require("./routes/home"),
+  articlesRouter = require("./routes/articlesRoutes"),
+  userRouter = require("./routes/usersRoutes"),
+  contactRouter = require("./routes/contact");
 
 // Set
 app.set("view engine", "ejs");
@@ -55,7 +56,7 @@ app.use(
 app.use("*", (req, res, next) => {
   res.locals.user = req.session.userId;
   res.locals.name = req.session.name;
-  console.log(` Id : ${res.locals.user}, Name : ${res.locals.name}`);
+  console.log(` id : ${res.locals.user}, name : ${res.locals.name}`);
   next();
 });
 
@@ -76,6 +77,7 @@ db.once("open", () => console.log("Connected to mongoose"));
 app.use("/auth", userRouter);
 app.use("/", homeRouter);
 app.use(articlesRouter);
+app.use(contactRouter);
 
 // Server
 app.listen(port, () => {
