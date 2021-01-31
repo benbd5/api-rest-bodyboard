@@ -1,6 +1,6 @@
 # API REST BODYBOARD
 
-https://api-rest-bodyboard.herokuapp.com
+Déployé sur heroku : https://api-rest-bodyboard.herokuapp.com
 
 - API REST en Node.js, Express et MongoDB
 
