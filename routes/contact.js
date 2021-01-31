@@ -4,6 +4,8 @@ const router = express.Router();
 
 // GET home page
 router.get("/forms/contact", (req, res) => {
+  res.locals.title = "Contact";
+
   res.render("forms/contact");
 });
 

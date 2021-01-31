@@ -36,6 +36,10 @@
     margin: auto;
 }
 
+.price-articles {
+    font-weight: bold;
+}
+
 /* .btn-custom {
     color: black;
     background: white;

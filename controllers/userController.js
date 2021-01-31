@@ -4,10 +4,14 @@ const User = require("../models/users");
 
 // ---------- Afficher les pages d'inscription et de connexion ----------
 const register_get = (req, res) => {
+  res.locals.title = "Inscription";
+
   res.render("auth/register");
 };
 
 const login_get = (req, res) => {
+  res.locals.title = "Connexion";
+
   res.render("auth/login");
 };
 

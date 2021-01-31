@@ -4,6 +4,8 @@ const Article = require("../models/articles");
 // ---------- GET ----------
 // Afficher les articles en fonction de leur catégorie dans leur page dédiée
 const article_bodyboard_index = async (req, res) => {
+  res.locals.title = "Bodyboard";
+
   const articles = await Article.find({ category: "bodyboard" }).sort({
     price: 1,
   }); // sort price (1) = croissant et (-1) décroissant
@@ -15,6 +17,8 @@ const article_bodyboard_index = async (req, res) => {
 };
 
 const article_palmes_index = async (req, res) => {
+  res.locals.title = "Palmes";
+
   const articles = await Article.find({ category: "palmes" }).sort({
     price: 1,
   });
@@ -25,6 +29,8 @@ const article_palmes_index = async (req, res) => {
 };
 
 const article_combinaisons_index = async (req, res) => {
+  res.locals.title = "Combinaisons";
+
   const articles = await Article.find({ category: "combinaisons" }).sort({
     price: 1,
   });
@@ -37,6 +43,8 @@ const article_combinaisons_index = async (req, res) => {
 };
 
 const article_accessoires_index = async (req, res) => {
+  res.locals.title = "Accessoires";
+
   const articles = await Article.find({ category: "accessoires" }).sort({
     price: 1,
   });
@@ -50,6 +58,8 @@ const article_accessoires_index = async (req, res) => {
 
 // Afficher les articles individuellement avec leur id
 const articles_details = async (req, res) => {
+  res.locals.title = `Détails ${req.params.id}`;
+
   try {
     const articles = await Article.findById(req.params.id);
     res.render("articles/showArticle", { articles });
@@ -61,6 +71,7 @@ const articles_details = async (req, res) => {
 // ---------- POST  ----------
 // Afficher la page posts
 const article_create_get = (req, res) => {
+  res.locals.title = "Ajout article";
   res.render("forms/posts");
 };
 
@@ -106,6 +117,8 @@ const article_create_post = (req, res) => {
 // ---------- PUT ----------
 // Afficher la page "edit"
 const articles_create_put = async (req, res) => {
+  res.locals.title = "Modifier l'article";
+
   try {
     const articles = await Article.findById(req.params.id);
     res.render("forms/edit", { articles });
