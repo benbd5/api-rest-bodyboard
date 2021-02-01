@@ -3,26 +3,26 @@
 <form action="send" method="POST" id="contact-form">
     <div class="row">
         <div class="col-6 mb-3">
-            <label for="firstName" class="form-label">Nom</label>
-            <input name="firstName" type="text" class="form-control" placeholder="First name" aria-label="First name">
+            <label for="lastName" class="form-label">Nom</label>
+            <input name="lastName" type="text" class="form-control" placeholder="Nom" aria-label="lastName">
         </div>
         <div class="col-6 mb-3">
-            <label for="lastName" class="form-label">Prénom</label>
-            <input name="lastName" type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+            <label for="firstName" class="form-label">Prénom</label>
+            <input name="firstName" type="text" class="form-control" placeholder="Prénom" aria-label="firstName">
         </div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Adresse mail</label>
+        <input name="email" type="email" class="form-control" id="exampleFormControlInput1"
+            placeholder="name@example.com">
     </div>
     <div class="mb-3">
         <label for="subject" class="form-label">Sujet</label>
         <input name="subject" type="text" class="form-control" id="subject" placeholder="Sujet">
     </div>
     <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <input name="email" type="email" class="form-control" id="exampleFormControlInput1"
-            placeholder="name@example.com">
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-        <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+        <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Envoyer</button>
 </form>
