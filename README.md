@@ -10,4 +10,4 @@ Déployé sur heroku : https://api-rest-bodyboard.herokuapp.com
 
 - Structure MVC
 
-- Moteur de templating : EJS
+- Moteur de template : EJS
