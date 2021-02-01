@@ -88,26 +88,6 @@
     filter: grayscale(0%);
 }
 
-
-/*
-.logo {
-    position: absolute;
-    left: 45%;
-    top: 40%;
-    background-color: #fff;
-    font-size: xx-large;
-    border-radius: 50%;
-    height: 200px;
-    width: 200px;
-    transition: 1s;
-}
-
- .title-logo {
-    position: absolute;
-    top: 35%;
-    left: 25%;
-} */
-
 .logo,
 .item,
 .item1 {

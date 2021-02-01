@@ -65,3 +65,56 @@ h2 {
 ul {
     padding-right: 2rem;
 }
+
+@media (max-width: 700px) {
+
+    .nav-links {
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .navbar {
+        text-align: center;
+        height: 350px;
+        margin-bottom: auto;
+    }
+
+    .navbar-brand {
+        margin-left: 16px;
+    }
+
+    .nav-links li {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .nav-elements img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 900px) {
+    .nav-elements img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .nav-elements a {
+        font-size: 20px;
+    }
+
+    .item h2,
+    .item1 h2 {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .item h2,
+    .item1 h2 {
+        font-size: 30px;
+    }
+}

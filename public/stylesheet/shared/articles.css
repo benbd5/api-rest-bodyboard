@@ -45,3 +45,25 @@
     background: white;
     margin: 0;
 } */
+
+@media (max-width: 768px) {
+    #oneArticle .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #oneArticle .row .col-4,
+    #oneArticle .row .col-8 {
+        width: auto;
+        margin: auto;
+    }
+}
+
+@media (max-width: 400px) {
+    .nav-articles {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
