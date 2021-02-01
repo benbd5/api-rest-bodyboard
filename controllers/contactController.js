@@ -45,7 +45,7 @@ const sendMessage = async (req, res) => {
       return;
     }
     console.log("Sent" + info.response);
-    res.send("Message envoyé !");
+    res.redirect("/");
   });
 };
 
