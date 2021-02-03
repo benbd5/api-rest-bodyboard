@@ -5,7 +5,7 @@ if (process.env.NODE_ENV !== "production") {
 const express = require("express"),
   app = express(),
   ejs = require("ejs"),
-  port = process.env.PORT || 3000,
+  port = process.env.PORT || 5000,
   mongoose = require("mongoose"),
   bodyParser = require("body-parser"),
   methodOverride = require("method-override"),

@@ -1,3 +1,4 @@
+const e = require("express");
 const nodemailer = require("nodemailer");
 
 const contact_get = (req, res) => {
@@ -44,8 +45,20 @@ const sendMessage = async (req, res) => {
       console.log(err);
       return;
     }
-    console.log("Sent" + info.response);
-    res.redirect("/");
+
+    if (
+      req.body.lastName == "" ||
+      req.body.firstName == "" ||
+      req.body.email == "" ||
+      req.body.subject == "" ||
+      req.body.message == ""
+    ) {
+      res.render("forms/contact", {
+        sendMsgLastName: "Veuillez renseigner le/les champ(s) non remplis",
+      });
+    }
+
+    res.render("forms/contact", { sendMsgOk: "Mail bien envoyé !" });
   });
 };
 
